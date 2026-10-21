@@ -23,4 +23,12 @@ Running log of the repo-hygiene walkthrough performed ahead of the Thursday secu
 
 ## Outcome
 
-_To be appended after merge._
+6. **Merge result:** PR #1 **merged** into `main` at 2026-10-21T15:17:23Z (merge commit `bcba4163f124a435c3af9200b935d8aad39b37bd`, merge method: merge). The PR is now closed with `merged: true`; the default branch contains both documentation files.
+
+7. **Secret scanning result:** **inconclusive — blocked by permissions, not clean and not dirty.** The token used for this walkthrough lacks access to secret scanning data. No alerts could be listed and none could be pulled for detail. This must be re-run by someone with security-events read access before sign-off.
+
+8. **Overall verdict:** **Workflow verified end to end; one open gap.**
+   - ✅ Repository, branch, two-file documentation commit, pull request, running log, diff review, and merge all functioned exactly as intended — the process itself is sound and repeatable for the team.
+   - ✅ The diff review accounted for every changed file and line count, with no surprises.
+   - ⚠️ The secret scanning sweep did not complete due to the token's permissions. Until it is re-run with proper access, the audit cannot be signed off as clean. Per the team checklist, this is item #5 and #6 — both currently **not** signable.
+   - **Recommendation:** the team lead or security reviewer should (1) confirm secret scanning is enabled for this repository, (2) run the alert sweep with appropriate credentials, and (3) then complete checklist items 5–6. Everything else is ready for Thursday.
